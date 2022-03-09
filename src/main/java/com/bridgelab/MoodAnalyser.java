@@ -11,6 +11,10 @@ public class MoodAnalyser {
         this.message = message;
     }
 
+    enum MoodAnayserError{
+        NULL, EMPTY;
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to mood analyser programms");
     }
@@ -34,6 +38,24 @@ public class MoodAnalyser {
             System.out.println("Null pointer Exception");
             return "HAPPY";
         }
+    }
+
+    public String moodAnalyse(String message) {
+        String value=null;
+        if (message.equals(MoodAnayserError.NULL.toString()) || message.equals(MoodAnayserError.EMPTY.toString())) {
+            try {
+                throw new Exception("UserDefinedCustomException");
+            } catch (Exception e) {
+                e.fillInStackTrace();
+                value= e.getMessage();
+            }
+        }
+        if (message.equals("sad"))
+            return "SAD";
+        if(message.equals("happy")) {
+            return "HAPPY";
+        }
+        return value;
     }
 
     @Override

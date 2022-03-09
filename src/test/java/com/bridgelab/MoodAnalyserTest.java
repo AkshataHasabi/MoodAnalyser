@@ -45,4 +45,36 @@ class MoodAnalyserTest {
         String mood = moodAnalyser.exceptionAnalysis(null);
         assertEquals("HAPPY",mood);
     }
+
+    @Test
+    void givenNullMessage_ShouldReturn_CustonExceptionMessage() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String mood = moodAnalyser.moodAnalyse("NULL");
+        System.out.println(mood);
+        assertEquals("UserDefinedCustomException",mood);
+    }
+
+    @Test
+    void givenEmptyMessage_ShouldReturn_CustonExceptionMessage() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String mood = moodAnalyser.moodAnalyse("EMPTY");
+        System.out.println(mood);
+        assertEquals("UserDefinedCustomException",mood);
+    }
+
+    @Test
+    void givenSadMessage_ShouldReturn_SadMessage() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String mood = moodAnalyser.moodAnalyse("sad");
+        System.out.println(mood);
+        assertEquals("SAD",mood);
+    }
+
+    @Test
+    void givenHappyMessage_ShouldReturn_HappyMessage() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
+        String mood = moodAnalyser.moodAnalyse("happy");
+        System.out.println(mood);
+        assertEquals("HAPPY",mood);
+    }
 }
